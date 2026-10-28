@@ -367,7 +367,6 @@
 
       nav { gap: 14px; font-size: 11px; }
 
-      nav a:nth-child(2) { display: none; }
 
       .hero { padding-top: 70px; }
 
