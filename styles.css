@@ -410,6 +410,40 @@
       footer { flex-wrap: wrap; }
     }
 
+/* Cabecera terracota con navegación en blanco */
+header.wrap {
+  width: 100%;
+  padding-left: 6%;
+  padding-right: 6%;
+  background: #C44917;
+  border-bottom-color: #C44917;
+}
+header .brand,
+header nav a,
+header .menu-toggle {
+  color: #ffffff;
+}
+header .brand span { color: #ffffff; }
+header nav a:hover,
+header nav a[aria-current="page"] {
+  color: #ffffff;
+  opacity: .78;
+}
+header .menu-toggle {
+  border-color: rgba(255,255,255,.7);
+  background: transparent;
+}
+@media (max-width: 760px) {
+  header.wrap { padding-left: 5%; padding-right: 5%; }
+  header nav {
+    background: #C44917;
+    border-color: rgba(255,255,255,.3);
+  }
+  header nav a { color: #ffffff; }
+  header nav a:hover,
+  header nav a[aria-current="page"] { color: #ffffff; opacity: .78; }
+}
+
 /* Navegación multipágina */
 header.wrap { position: relative; }
 nav a { transition: color .2s ease; }
