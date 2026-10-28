@@ -465,3 +465,39 @@ footer a:hover { color:var(--terracotta); }
   .process-grid { grid-template-columns:1fr; }
   .service-title { font-size:18px; }
 }
+
+
+/* Botón circular de Instagram junto a Contacto */
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 1px solid var(--navy);
+  border-radius: 50%;
+  color: var(--navy);
+  margin-left: 2px;
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.instagram-button svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.instagram-button .instagram-dot { fill: currentColor; stroke: none; }
+.instagram-button:hover {
+  color: var(--bg);
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  transform: translateY(-1px);
+}
+@media (max-width: 760px) {
+  .instagram-button { margin-left: 0; }
+}
