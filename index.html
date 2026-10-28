@@ -10,6 +10,131 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=logo2">
+  <style>
+    /* Nueva sección de servicios de la página de inicio */
+    .services-feature {
+      width: 100%;
+      padding: 0;
+      background: #1A2443;
+      color: #ffffff;
+    }
+
+    .services-feature-inner {
+      width: min(1240px, 88%);
+      margin: 0 auto;
+      padding: 100px 0;
+    }
+
+    .services-feature-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, .85fr) 1.15fr;
+      gap: 70px;
+      align-items: stretch;
+    }
+
+    .services-feature-image {
+      min-height: 540px;
+      overflow: hidden;
+      background: #111a32;
+    }
+
+    .services-feature-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .services-feature-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .services-feature .section-heading {
+      border-bottom-color: rgba(255,255,255,.28);
+      margin-bottom: 10px;
+    }
+
+    .services-feature .section-heading h2 {
+      color: #ffffff;
+    }
+
+    .services-feature-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 45px;
+    }
+
+    .services-feature-item {
+      display: grid;
+      grid-template-columns: 35px 1fr 20px;
+      align-items: center;
+      gap: 12px;
+      min-height: 105px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.28);
+      color: #ffffff;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .services-feature-item:hover {
+      opacity: .82;
+      transform: translateX(4px);
+    }
+
+    .services-feature-item span:first-child {
+      color: #C44917;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .services-feature-item h3 {
+      margin: 0;
+      color: #ffffff;
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .services-feature-item .service-arrow {
+      color: #ffffff;
+      font-size: 17px;
+      text-align: right;
+    }
+
+    .services-feature .link {
+      color: #ffffff;
+      border-bottom-color: #C44917;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 760px) {
+      .services-feature-inner {
+        width: 90%;
+        padding: 75px 0;
+      }
+
+      .services-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-feature-image {
+        min-height: 320px;
+        height: 58vw;
+      }
+
+      .services-feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .services-feature-item {
+        min-height: 82px;
+      }
+    }
+  </style>
 </head>
 <body>
 <header class="wrap">
@@ -34,11 +159,37 @@
   <div class="hero-bottom"><p class="intro">Desarrollamos proyectos de arquitectura, construcción y remodelación que equilibran funcionalidad, estética y calidad. Diseñamos cada espacio a partir de las necesidades de nuestros clientes.</p><a class="link" href="proyectos.html">Explorar proyectos ↗</a></div>
 </section>
 <div class="hero-image"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85" alt="Espacio interior contemporáneo con materiales naturales"></div>
-<section class="section wrap"><div class="section-heading"><h2>Qué ofrecemos</h2><p>Soluciones para cada espacio y necesidad.</p></div><p class="section-intro">Desde el concepto hasta el desarrollo técnico, te acompañamos para convertir tus ideas en espacios funcionales y con identidad.</p><div class="services">
-<article class="service"><h3 class="service-title"><span class="service-number">01.</span> Diseño arquitectónico</h3><p>Diseñamos proyectos funcionales y estéticos, adaptados a tus necesidades.</p></article>
-<article class="service"><h3 class="service-title"><span class="service-number">02.</span> Diseño de interiores</h3><p>Creamos ambientes que equilibran funcionalidad, estética y personalidad.</p></article>
-<article class="service"><h3 class="service-title"><span class="service-number">03.</span> Construcción y supervisión de obra</h3><p>Coordinamos la ejecución para cuidar la calidad y fidelidad al diseño.</p></article>
-<article class="service"><h3 class="service-title"><span class="service-number">04.</span> Muebles personalizados</h3><p>Diseñamos mobiliario a medida, funcional y coherente con cada espacio.</p></article></div><p style="margin-top:28px"><a class="link" href="servicios.html">Conoce todos nuestros servicios ↗</a></p></section>
+
+<section class="services-feature">
+  <div class="services-feature-inner">
+    <div class="services-feature-grid">
+      <div class="services-feature-image">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Referencia de arquitectura residencial contemporánea" loading="lazy">
+      </div>
+      <div class="services-feature-content">
+        <div class="section-heading">
+          <h2>Qué ofrecemos</h2>
+        </div>
+        <div class="services-feature-list">
+          <a class="services-feature-item" href="servicios.html">
+            <span>01.</span><h3>Diseño arquitectónico</h3><span class="service-arrow">↗</span>
+          </a>
+          <a class="services-feature-item" href="servicios.html">
+            <span>02.</span><h3>Diseño de interiores</h3><span class="service-arrow">↗</span>
+          </a>
+          <a class="services-feature-item" href="servicios.html">
+            <span>03.</span><h3>Construcción y supervisión de obra</h3><span class="service-arrow">↗</span>
+          </a>
+          <a class="services-feature-item" href="servicios.html">
+            <span>04.</span><h3>Diseño y fabricación de muebles personalizados</h3><span class="service-arrow">↗</span>
+          </a>
+        </div>
+        <p style="margin:0"><a class="link" href="servicios.html">Conoce todos nuestros servicios ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section wrap"><div class="section-heading"><h2>Proyectos seleccionados</h2><p>Diseño pensado para cada forma de habitar.</p></div><div class="projects">
 <article class="project"><div class="project-image"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Referencia de arquitectura residencial" loading="lazy"></div><div class="project-meta"><div><h3>Arquitectura residencial</h3><p>Diseño arquitectónico · Vivienda</p></div><span class="number">01</span></div></article>
 <article class="project"><div class="project-image"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80" alt="Referencia de diseño interior" loading="lazy"></div><div class="project-meta"><div><h3>Diseño de espacios</h3><p>Interiores · Diseño integral</p></div><span class="number">02</span></div></article></div><p style="margin-top:28px"><a class="link" href="proyectos.html">Ver portafolio completo ↗</a></p></section>
