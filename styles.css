@@ -428,7 +428,10 @@ nav a:hover, nav a[aria-current="page"] { color: var(--terracotta); }
 .service-page-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:48px; }
 .process-section { background: var(--soft); }
 .contact-layout { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; }
-.contact-card { padding:28px; border:1px solid var(--line); }
+.contact-card { padding:28px; border:1px solid var(--navy); background:#1A2443; color:#ffffff; }
+.contact-card h2, .contact-card p, .contact-card strong, .contact-card a { color:#ffffff; }
+.contact-card .eyebrow { color:#ffffff; }
+.contact-card a { border-color:#ffffff; }
 .contact-card p, .contact-copy { color:var(--muted); line-height:1.9; font-size:14px; }
 .contact-form { display:grid; gap:16px; }
 .contact-form label { display:grid; gap:8px; font-size:12px; color:var(--navy); }
@@ -475,9 +478,10 @@ footer a:hover { color:var(--terracotta); }
   width: 36px;
   height: 36px;
   flex: 0 0 36px;
-  border: 1px solid var(--navy);
+  border: 1px solid #1A2443;
   border-radius: 50%;
-  color: var(--navy);
+  color: #ffffff;
+  background: #1A2443;
   margin-left: 2px;
   transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
@@ -493,7 +497,7 @@ footer a:hover { color:var(--terracotta); }
 }
 .instagram-button .instagram-dot { fill: currentColor; stroke: none; }
 .instagram-button:hover {
-  color: var(--bg);
+  color: #ffffff;
   background: var(--terracotta);
   border-color: var(--terracotta);
   transform: translateY(-1px);
