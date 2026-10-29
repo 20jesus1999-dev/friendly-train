@@ -395,7 +395,8 @@
       .services { grid-template-columns: 1fr; }
       .service-page-grid { grid-template-columns: 1fr; column-gap: 0; }
       .service-page-grid .service { padding-left: 72px; }
-      .service-page-grid .service-icon { width: 48px; height: 48px; top: 28px; }\n      .service-page-grid .service-icon svg { width: 29px; height: 29px; }
+      .service-page-grid .service-icon { width: 48px; height: 48px; top: 28px; }
+      .service-page-grid .service-icon svg { width: 29px; height: 29px; }
       .service p { margin-left: 0; }
       .process-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 
