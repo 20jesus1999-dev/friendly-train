@@ -4,19 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1A2443">
-  <meta name="description" content="Conoce el enfoque, la filosofía y el equipo de ALVAREZ Arquitectura.">
+  <meta name="description" content="Conoce el enfoque, la filosofía y el liderazgo de ALVAREZ Arquitectura.">
   <title>Nosotros | ALVAREZ Arquitectura</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=logo2">
   <style>
-    .team-photo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center 30%;
+    .about-page { background:#F7F5F0; }
+    .about-hero { padding-bottom:38px; }
+    .about-banner { width:100%; height:clamp(230px,34vw,420px); overflow:hidden; background:#e8e4dc; }
+    .about-banner img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 54%; }
+    .philosophy-section { padding:76px 0 84px; }
+    .philosophy-intro { display:grid; grid-template-columns:.85fr 1.15fr; gap:55px; align-items:end; margin-bottom:32px; }
+    .philosophy-intro h2 { max-width:460px; }
+    .philosophy-intro p { max-width:600px; color:var(--muted); font-size:14px; line-height:1.8; margin:0; }
+    .pillar-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .pillar-card { min-height:225px; padding:26px 25px 28px; border:1px solid rgba(196,73,23,.28); background:#fff; display:flex; flex-direction:column; }
+    .pillar-number { color:var(--terracotta); font-size:11px; letter-spacing:1.8px; margin-bottom:29px; }
+    .pillar-card h3 { margin:0 0 12px; color:var(--navy); font:600 19px/1.35 'Manrope',sans-serif; letter-spacing:-.5px; }
+    .pillar-card p { margin:0; color:var(--muted); font-size:13px; line-height:1.75; }
+    .leadership-section { padding:78px 0 82px; background:#fff; }
+    .leadership-heading { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:30px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+    .leadership-heading p { margin:0; max-width:340px; color:var(--muted); font-size:13px; line-height:1.7; }
+    .leadership-card { display:grid; grid-template-columns:minmax(260px,.78fr) 1.22fr; gap:clamp(30px,5vw,68px); align-items:center; }
+    .team-photo { height:clamp(320px,38vw,470px); overflow:hidden; background:#eeeae2; }
+    .team-photo img { width:100%; height:100%; display:block; object-fit:cover; object-position:center 30%; }
+    .leader-eyebrow { margin:0 0 12px; color:var(--terracotta); font-size:10px; letter-spacing:2px; text-transform:uppercase; }
+    .leader-name { margin:0; font:600 clamp(32px,4vw,48px)/1.08 'Manrope',sans-serif; letter-spacing:-1.8px; }
+    .team-role { color:var(--terracotta); font-size:12px; font-weight:600; letter-spacing:.4px; margin:10px 0 22px; }
+    .team-copy { max-width:650px; color:var(--muted); font-size:14px; line-height:1.8; }
+    .team-copy p { margin:0 0 13px; }
+    .network-note { margin-top:26px; padding:21px 23px; border-left:3px solid var(--terracotta); background:#F7F5F0; }
+    .network-note h3 { margin:0 0 8px; font:600 15px/1.4 'Manrope',sans-serif; }
+    .network-note p { margin:0; color:var(--muted); font-size:13px; line-height:1.75; }
+    .about-page-cta { margin-top:0; }
+    @media(max-width:760px) {
+      .about-hero { padding-top:60px; padding-bottom:30px; }
+      .about-banner { height:260px; }
+      .philosophy-section { padding:48px 0 52px; }
+      .philosophy-intro { grid-template-columns:1fr; gap:14px; margin-bottom:22px; }
+      .philosophy-intro h2 { font-size:clamp(29px,8vw,38px); letter-spacing:-1.3px; }
+      .pillar-grid { grid-template-columns:1fr; gap:10px; }
+      .pillar-card { min-height:0; padding:20px 20px 22px; }
+      .pillar-number { margin-bottom:16px; }
+      .leadership-section { padding:48px 0 54px; }
+      .leadership-heading { align-items:start; flex-direction:column; gap:9px; margin-bottom:23px; }
+      .leadership-heading p { max-width:100%; }
+      .leadership-card { grid-template-columns:1fr; gap:23px; }
+      .team-photo { height:360px; }
+      .team-copy { font-size:13px; line-height:1.75; }
+      .team-copy p { margin-bottom:10px; }
+      .network-note { margin-top:20px; padding:18px; }
+    }
+    @media(max-width:420px) {
+      .about-banner { height:220px; }
+      .team-photo { height:320px; }
+      .pillar-card h3 { font-size:18px; }
     }
   </style>
 </head>
@@ -35,17 +79,70 @@
     </a>
   </nav>
 </header>
-<main>
-<section class="page-hero wrap">
-  <p class="eyebrow">ALVAREZ ARQUITECTURA · NOSOTROS</p>
-  <h1>Diseño, técnica y<br><em>compromiso.</em></h1>
-  <p class="intro">Somos un estudio de arquitectura con base en Chancay, Lima, Perú, enfocado en desarrollar espacios funcionales, contemporáneos y con identidad.</p>
-</section>
-<div class="page-banner"><img src="assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png" alt="Espacio interior contemporáneo"></div>
-<section class="section wrap"><div class="about"><div><p class="eyebrow">Nuestra filosofía</p><h2>Comprender el contexto. Diseñar con propósito.</h2></div><div class="about-copy"><p>En ALVAREZ Arquitectura entendemos cada proyecto como una oportunidad para transformar necesidades reales en espacios funcionales, bien resueltos y con identidad.</p><p>Integramos diseño, planificación y conocimiento técnico para acompañar cada etapa, desde el concepto inicial hasta el desarrollo y la ejecución, buscando soluciones coherentes con el lugar, el presupuesto y los objetivos del cliente.</p><p>Nuestro enfoque combina funcionalidad, estética, materialidad y viabilidad constructiva, cuidando los detalles y manteniendo una visión integral de cada proyecto.</p></div></div></section>
-<section class="section wrap"><div class="section-heading"><h2>Nuestro equipo</h2><p>Dirección y desarrollo integral de proyectos.</p></div><article class="team-card"><div class="team-photo"><img src="assets/IMG_0165.JPG.jpeg" alt="Jesús Álvarez, arquitecto fundador de ALVAREZ Arquitectura" loading="lazy"></div><div><p class="eyebrow">Nuestro equipo</p><h2>Jesús Álvarez</h2><p class="team-role">Arquitecto · Fundador</p><div class="team-copy"><p>Lidera ALVAREZ Arquitectura y participa en el desarrollo integral de cada proyecto, desde la conceptualización hasta su desarrollo técnico. Su enfoque combina diseño, funcionalidad, materialidad y viabilidad constructiva para crear propuestas contemporáneas, coherentes y con identidad.</p><p>Su visión busca comprender las necesidades de cada cliente y las características de cada contexto, transformándolas en soluciones arquitectónicas de calidad, con atención al detalle y una perspectiva integral del proyecto.</p></div></div></article></section>
-<section class="page-cta"><div class="wrap"><p class="eyebrow">ALVAREZ ARQUITECTURA</p><h2>Diseñemos algo significativo.</h2><a class="link" href="contacto.html">Contactar al estudio ↗</a></div></section>
+<main class="about-page">
+  <section class="page-hero wrap about-hero">
+    <p class="eyebrow">ALVAREZ ARQUITECTURA · NOSOTROS</p>
+    <h1>Diseño, técnica y<br><em>compromiso.</em></h1>
+    <p class="intro">Somos un estudio de arquitectura con base en Chancay, Lima, Perú, enfocado en desarrollar espacios funcionales, contemporáneos y con identidad.</p>
+  </section>
+
+  <div class="about-banner"><img src="assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png" alt="Espacio arquitectónico contemporáneo" loading="lazy"></div>
+
+  <section class="philosophy-section">
+    <div class="wrap">
+      <div class="philosophy-intro">
+        <div>
+          <p class="eyebrow">Nuestra filosofía</p>
+          <h2>Comprender el contexto. Diseñar con propósito.</h2>
+        </div>
+        <p>Cada proyecto parte de escuchar, observar y comprender. Convertimos las necesidades del cliente y las condiciones del lugar en decisiones de diseño claras, técnicamente coherentes y posibles de construir.</p>
+      </div>
+      <div class="pillar-grid">
+        <article class="pillar-card">
+          <div class="pillar-number">01 / CONTEXTO</div>
+          <h3>Contexto &amp; Identidad</h3>
+          <p>Leemos el entorno, el uso y las necesidades de cada cliente para crear espacios con carácter propio, conectados con su lugar y su forma de habitar.</p>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-number">02 / PRECISIÓN</div>
+          <h3>Trazabilidad Técnica &amp; Materialidad</h3>
+          <p>Relacionamos las decisiones de diseño con materiales, sistemas y detalles constructivos, procurando coherencia entre la idea arquitectónica y su desarrollo técnico.</p>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-number">03 / INTEGRACIÓN</div>
+          <h3>Viabilidad &amp; Desarrollo Integral</h3>
+          <p>Evaluamos funcionalidad, presupuesto y ejecución desde etapas tempranas para desarrollar propuestas realistas y acompañar su evolución de manera integral.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadership-section">
+    <div class="wrap">
+      <div class="leadership-heading">
+        <h2>Liderazgo</h2>
+        <p>Dirección arquitectónica y desarrollo integral de proyectos.</p>
+      </div>
+      <article class="leadership-card">
+        <div class="team-photo"><img src="assets/IMG_0165.JPG.jpeg" alt="Jesús Álvarez, arquitecto fundador de ALVAREZ Arquitectura" loading="lazy"></div>
+        <div class="leader-content">
+          <p class="leader-eyebrow">Arquitecto · Fundador</p>
+          <h2 class="leader-name">Jesús Álvarez</h2>
+          <p class="team-role">Dirección y diseño arquitectónico</p>
+          <div class="team-copy">
+            <p>Lidera ALVAREZ Arquitectura y participa en el desarrollo integral de cada proyecto, desde la conceptualización hasta su desarrollo técnico. Su enfoque combina diseño, funcionalidad, materialidad y viabilidad constructiva para crear propuestas contemporáneas, coherentes y con identidad.</p>
+            <p>Su visión busca comprender las necesidades de cada cliente y las características de cada contexto, transformándolas en soluciones arquitectónicas de calidad, con atención al detalle y una perspectiva integral del proyecto.</p>
+          </div>
+          <aside class="network-note">
+            <h3>Red Multidisciplinaria</h3>
+            <p>Según el alcance y las necesidades de cada proyecto, colaboramos con ingenieros, especialistas y profesionales complementarios. Esta red de trabajo permite integrar conocimientos específicos y coordinar soluciones de manera consistente con la propuesta arquitectónica.</p>
+          </aside>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
+<section class="page-cta about-page-cta"><div class="wrap"><p class="eyebrow">ALVAREZ ARQUITECTURA</p><h2>Diseñemos algo significativo.</h2><a class="link" href="contacto.html">Contactar al estudio ↗</a></div></section>
 <footer class="wrap">
   <span>© <span data-year></span> ALVAREZ Arquitectura · Chancay, Lima, Perú</span>
   <span><a href="servicios.html">Servicios</a> · <a href="proyectos.html">Proyectos</a> · <a href="nosotros.html">Nosotros</a> · <a href="contacto.html">Contacto</a> · <a href="https://www.instagram.com/alvarezarq.pe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALVAREZ Arquitectura">Instagram ↗</a></span>
