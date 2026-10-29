@@ -62,6 +62,46 @@
       .team-photo { height:320px; }
       .pillar-card h3 { font-size:18px; }
     }
+
+    /* Ajustes de jerarquía: fundador primero, filosofía breve y visual */
+    .leadership-section { padding:54px 0 62px; background:#fff; }
+    .leadership-card { grid-template-columns:minmax(260px,.82fr) 1.18fr; gap:clamp(28px,5vw,64px); }
+    .leader-eyebrow { font-weight:600; }
+    .team-role { margin:10px 0 18px; }
+    .team-copy p { margin:0; }
+    .network-note { margin-top:23px; transition:transform .25s ease, box-shadow .25s ease; }
+    .network-note:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(26,36,67,.07); }
+    .philosophy-section { padding:62px 0 82px; background:#F7F5F0; }
+    .philosophy-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:25px; }
+    .philosophy-heading .eyebrow { margin:0 0 8px; }
+    .philosophy-heading h2 { max-width:650px; font-size:clamp(28px,4vw,42px); }
+    .pillar-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+    .pillar-card { min-height:0; padding:25px 23px 27px; border:1px solid #E7E2DA; background:#fff; display:flex; flex-direction:column; gap:22px; transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+    .pillar-card:hover { transform:translateY(-5px); border-color:rgba(196,73,23,.55); box-shadow:0 16px 34px rgba(26,36,67,.08); }
+    .pillar-icon { display:flex; align-items:center; justify-content:center; width:52px; height:52px; color:#C85A32; background:#FBF1EC; border-radius:50%; transition:transform .28s ease, background .28s ease; }
+    .pillar-card:hover .pillar-icon { transform:rotate(-5deg) scale(1.06); background:#F8E6DD; }
+    .pillar-icon svg { width:30px; height:30px; }
+    .pillar-number { display:block; color:var(--terracotta); font-size:10px; letter-spacing:1.6px; margin:0 0 9px; }
+    .pillar-card h3 { font-size:18px; line-height:1.35; margin:0 0 9px; }
+    .pillar-card p { margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+    @media(max-width:760px) {
+      .leadership-section { padding:38px 0 44px; }
+      .leadership-card { grid-template-columns:1fr; gap:21px; }
+      .team-photo { height:clamp(300px,90vw,390px); }
+      .leader-name { font-size:36px; }
+      .network-note { margin-top:19px; padding:17px 18px; }
+      .philosophy-section { padding:42px 0 50px; }
+      .philosophy-heading { display:block; margin-bottom:19px; }
+      .philosophy-heading h2 { font-size:29px; letter-spacing:-1px; }
+      .pillar-grid { grid-template-columns:1fr; gap:10px; }
+      .pillar-card { flex-direction:row; align-items:flex-start; gap:16px; padding:18px; }
+      .pillar-icon { width:44px; height:44px; flex:0 0 44px; }
+      .pillar-icon svg { width:26px; height:26px; }
+      .pillar-copy { min-width:0; }
+      .pillar-number { margin-bottom:6px; }
+      .pillar-card h3 { font-size:16px; margin-bottom:6px; }
+      .pillar-card p { font-size:12px; line-height:1.6; }
+    }
   </style>
 </head>
 <body>
@@ -88,59 +128,55 @@
 
   <div class="about-banner"><img src="assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png" alt="Espacio arquitectónico contemporáneo" loading="lazy"></div>
 
-  <section class="philosophy-section">
-    <div class="wrap">
-      <div class="philosophy-intro">
-        <div>
-          <p class="eyebrow">Nuestra filosofía</p>
-          <h2>Comprender el contexto. Diseñar con propósito.</h2>
-        </div>
-        <p>Cada proyecto parte de escuchar, observar y comprender. Convertimos las necesidades del cliente y las condiciones del lugar en decisiones de diseño claras, técnicamente coherentes y posibles de construir.</p>
-      </div>
-      <div class="pillar-grid">
-        <article class="pillar-card">
-          <div class="pillar-number">01 / CONTEXTO</div>
-          <h3>Contexto &amp; Identidad</h3>
-          <p>Leemos el entorno, el uso y las necesidades de cada cliente para crear espacios con carácter propio, conectados con su lugar y su forma de habitar.</p>
-        </article>
-        <article class="pillar-card">
-          <div class="pillar-number">02 / PRECISIÓN</div>
-          <h3>Trazabilidad Técnica &amp; Materialidad</h3>
-          <p>Relacionamos las decisiones de diseño con materiales, sistemas y detalles constructivos, procurando coherencia entre la idea arquitectónica y su desarrollo técnico.</p>
-        </article>
-        <article class="pillar-card">
-          <div class="pillar-number">03 / INTEGRACIÓN</div>
-          <h3>Viabilidad &amp; Desarrollo Integral</h3>
-          <p>Evaluamos funcionalidad, presupuesto y ejecución desde etapas tempranas para desarrollar propuestas realistas y acompañar su evolución de manera integral.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="leadership-section">
     <div class="wrap">
-      <div class="leadership-heading">
-        <h2>Liderazgo</h2>
-        <p>Dirección arquitectónica y desarrollo integral de proyectos.</p>
-      </div>
       <article class="leadership-card">
         <div class="team-photo"><img src="assets/IMG_0165.JPG.jpeg" alt="Jesús Álvarez, arquitecto fundador de ALVAREZ Arquitectura" loading="lazy"></div>
         <div class="leader-content">
-          <p class="leader-eyebrow">Arquitecto · Fundador</p>
+          <p class="leader-eyebrow">Arquitecto fundador</p>
           <h2 class="leader-name">Jesús Álvarez</h2>
-          <p class="team-role">Dirección y diseño arquitectónico</p>
+          <p class="team-role">Dirección &amp; Diseño Arquitectónico</p>
           <div class="team-copy">
-            <p>Lidera ALVAREZ Arquitectura y participa en el desarrollo integral de cada proyecto, desde la conceptualización hasta su desarrollo técnico. Su enfoque combina diseño, funcionalidad, materialidad y viabilidad constructiva para crear propuestas contemporáneas, coherentes y con identidad.</p>
-            <p>Su visión busca comprender las necesidades de cada cliente y las características de cada contexto, transformándolas en soluciones arquitectónicas de calidad, con atención al detalle y una perspectiva integral del proyecto.</p>
+            <p>Lidera ALVAREZ Arquitectura garantizando un proceso integral donde la visión de diseño se une a la viabilidad técnica y constructiva de cada obra.</p>
           </div>
           <aside class="network-note">
-            <h3>Red Multidisciplinaria</h3>
-            <p>Según el alcance y las necesidades de cada proyecto, colaboramos con ingenieros, especialistas y profesionales complementarios. Esta red de trabajo permite integrar conocimientos específicos y coordinar soluciones de manera consistente con la propuesta arquitectónica.</p>
+            <h3>Sinergia en obra · Red Multidisciplinaria</h3>
+            <p>Colaboración directa con ingenieros calculistas, especialistas en instalaciones y maestros de obra para garantizar la precisión en la ejecución.</p>
           </aside>
         </div>
       </article>
     </div>
   </section>
+
+  <section class="philosophy-section">
+    <div class="wrap">
+      <div class="philosophy-heading">
+        <p class="eyebrow">Nuestra filosofía</p>
+        <h2>Principios que guían cada proyecto.</h2>
+      </div>
+      <div class="pillar-grid">
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="24" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M24 7v7m17 10h-7M24 41v-7M7 24h7m17.5-12.5-3.8 7.1M12.5 35.5l7.1-3.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pillar-copy"><span class="pillar-number">01 / CONTEXTO</span><h3>Contexto &amp; Identidad</h3><p>Diseñamos desde la lectura atenta del lugar, sus condiciones y la forma de habitar de cada cliente.</p></div>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="m24 6 17 9-17 9-17-9 17-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m7 24 17 9 17-9M7 33l17 9 17-9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pillar-copy"><span class="pillar-number">02 / PRECISIÓN</span><h3>Rigor Técnico &amp; Materialidad</h3><p>Unimos la idea arquitectónica con sistemas constructivos, detalles y materiales de alta calidad.</p></div>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 27v-5a16 16 0 0 1 32 0v5M8 27h6v10H8a4 4 0 0 1-4-4v-2a4 4 0 0 1 4-4Zm32 0h-6v10h6a4 4 0 0 0 4-4v-2a4 4 0 0 0-4-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m18 25 4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pillar-copy"><span class="pillar-number">03 / EJECUCIÓN</span><h3>Viabilidad &amp; Ejecución</h3><p>Controlamos costos, función y viabilidad desde las primeras fases hasta la entrega del proyecto.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
 </main>
 <section class="page-cta about-page-cta"><div class="wrap"><p class="eyebrow">ALVAREZ ARQUITECTURA</p><h2>Diseñemos algo significativo.</h2><a class="link" href="contacto.html">Contactar al estudio ↗</a></div></section>
 <footer class="wrap">
