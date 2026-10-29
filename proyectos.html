@@ -15,7 +15,7 @@
     .projects-frame { display:grid; grid-template-columns:repeat(3, 1fr); gap:0; min-height:560px; overflow:hidden; background:#1A2443; }
     .project-tile { position:relative; min-height:560px; overflow:hidden; border:0; padding:0; cursor:pointer; text-align:left; color:#fff; background:#1A2443; pointer-events:auto; -webkit-appearance:none; appearance:none; }
     .project-tile + .project-tile { border-left:1px solid rgba(255,255,255,.18); }
-    .project-tile img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.65,.2,1), filter .5s ease; pointer-events:none; }
+    .project-tile img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; transition:transform .8s cubic-bezier(.2,.65,.2,1), filter .5s ease; pointer-events:none; }
     .project-tile::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,15,30,0) 35%, rgba(10,15,30,.16) 54%, rgba(10,15,30,.88) 100%); transition:background .45s ease; pointer-events:none; }
     .project-tile:hover img, .project-tile:focus-visible img { transform:scale(1.05); }
     .project-tile:hover::after, .project-tile:focus-visible::after { background:linear-gradient(180deg, rgba(10,15,30,.03) 30%, rgba(10,15,30,.22) 52%, rgba(10,15,30,.94) 100%); }
@@ -42,8 +42,8 @@
     .modal-description { margin:0; color:#626879; font-size:14px; line-height:1.9; max-width:700px; }
     .modal-section-title { margin:0 0 16px; font-family:'Manrope',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; }
     .modal-plan { margin-bottom:35px; }
-    .modal-plan-image { min-height:230px; max-height:420px; overflow:hidden; background:#e8e6df; }
-    .modal-plan-image img { display:block; width:100%; height:100%; min-height:230px; object-fit:contain; background:#e8e6df; }
+    .modal-plan-image { display:flex; align-items:center; justify-content:center; height:min(62vh,520px); min-height:230px; max-height:520px; overflow:hidden; background:#e8e6df; }
+    .modal-plan-image img { display:block; width:100%; height:100%; min-height:0; object-fit:contain; object-position:center center; background:#e8e6df; }
     .modal-renders { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
     .modal-renders img { display:block; width:100%; height:250px; object-fit:cover; background:#e8e6df; }
     .modal-navigation { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:25px 38px; border-top:1px solid #e4e5e9; }
@@ -77,6 +77,6 @@
   <div class="modal-navigation"><button class="modal-nav-btn" id="modal-prev" type="button">← Anterior</button><span class="modal-counter" id="modal-counter"></span><button class="modal-nav-btn" id="modal-next" type="button">Siguiente →</button></div>
 </div></div>
 <footer class="wrap"><span>© <span data-year></span> ALVAREZ Arquitectura · Chancay, Lima, Perú</span><span><a href="servicios.html">Servicios</a> · <a href="proyectos.html">Proyectos</a> · <a href="nosotros.html">Liderazgo</a> · <a href="contacto.html">Contacto</a> · <a href="https://www.instagram.com/alvarezarq.pe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALVAREZ Arquitectura">Instagram ↗</a></span></footer>
-<script src="script.js?v=project-assets-4"></script>
+<script src="script.js?v=project-assets-5"></script>
 </body>
 </html>
