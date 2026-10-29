@@ -12,116 +12,55 @@
   <link rel="stylesheet" href="styles.css?v=logo2">
   <style>
   /* Carrusel principal */
-  .hero-carousel {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    touch-action: pan-y;
-    background: #f0f0f0;
+  .hero-carousel { width:100%; overflow:hidden; position:relative; touch-action:pan-y; background:#f0f0f0; }
+  .hero-carousel-track { display:flex; width:100%; transform:translate3d(-100%,0,0); transition:transform 750ms cubic-bezier(.22,.61,.36,1); will-change:transform; }
+  .hero-carousel-slide { flex:0 0 100%; width:100%; height:clamp(320px,58vw,760px); overflow:hidden; }
+  .hero-carousel-slide img { display:block; width:100%; height:100%; object-fit:cover; }
+  @media (prefers-reduced-motion:reduce) { .hero-carousel-track { transition-duration:1ms; } }
+  .services-feature { width:100%; padding:0; background:#1A2443; color:#fff; }
+  .services-feature-inner { width:min(1240px,88%); margin:0 auto; padding:100px 0; }
+  .services-feature-grid { display:grid; grid-template-columns:minmax(320px,.85fr) 1.15fr; gap:70px; align-items:stretch; }
+  .services-feature-image { min-height:540px; overflow:hidden; background:#111a32; }
+  .services-feature-image img { width:100%; height:100%; display:block; object-fit:cover; }
+  .services-feature-content { display:flex; flex-direction:column; justify-content:center; }
+  .services-feature .section-heading { border-bottom-color:rgba(255,255,255,.28); margin-bottom:10px; }
+  .services-feature .section-heading h2 { color:#fff; }
+  .services-feature-list { display:grid; grid-template-columns:1fr 1fr; column-gap:45px; }
+  .services-feature-item { display:grid; grid-template-columns:35px 1fr 20px; align-items:center; gap:12px; min-height:105px; padding:20px 0; border-top:1px solid rgba(255,255,255,.28); color:#fff; transition:opacity .2s ease,transform .2s ease; }
+  .services-feature-item:hover { opacity:.82; transform:translateX(4px); }
+  .services-feature-item span:first-child { color:#C44917; font-size:12px; font-weight:600; }
+  .services-feature-item h3 { margin:0; color:#fff; font-family:'Manrope',sans-serif; font-size:18px; line-height:1.35; font-weight:600; }
+  .services-feature-item .service-arrow { color:#fff; font-size:17px; text-align:right; }
+  .services-feature .link { color:#fff; border-bottom-color:#C44917; margin-top:28px; }
+  /* Hero: texto a la izquierda y carrusel a la derecha */
+  .hero.hero-split { display:grid; grid-template-columns:minmax(0,.82fr) minmax(380px,1.18fr); gap:clamp(45px,6vw,90px); align-items:center; padding:82px 0 72px; }
+  .hero-copy { min-width:0; }
+  .hero-split h1 { margin:25px 0; }
+  .hero-split .hero-bottom { display:block; margin-top:28px; }
+  .hero-split .hero-bottom .intro { max-width:430px; margin:0 0 28px; }
+  .hero-side-carousel { min-width:0; }
+  /* Carrusel más bajo y ligeramente más ancho */
+  .hero-side-carousel { width:calc(100% + 45px); }
+  .hero-side-carousel .hero-carousel-slide { height:clamp(300px,31vw,430px); }
+  .hero-side-carousel .hero-carousel { width:100%; }
+  header nav { align-items:center; gap:30px; font-size:14px; }
+  header nav > a:not(.instagram-button) { display:inline-flex; align-items:center; height:36px; }
+  header .instagram-button { align-self:center; }
+  @media (max-width:900px) {
+    .hero.hero-split { grid-template-columns:1fr; gap:45px; padding:70px 0 55px; }
+    .hero-side-carousel { width:100%; }
+    .hero-side-carousel .hero-carousel-slide { height:clamp(300px,55vw,480px); }
   }
-  .hero-carousel-track {
-    display: flex;
-    width: 100%;
-    transform: translate3d(-100%, 0, 0);
-    transition: transform 750ms cubic-bezier(.22,.61,.36,1);
-    will-change: transform;
+  @media (max-width:760px) {
+    header nav { gap:14px; font-size:11px; }
+    header nav > a:not(.instagram-button) { height:auto; }
+    .services-feature-inner { width:90%; padding:75px 0; }
+    .services-feature-grid { grid-template-columns:1fr; gap:40px; }
+    .services-feature-image { min-height:320px; height:58vw; }
+    .services-feature-list { grid-template-columns:1fr; }
+    .services-feature-item { min-height:82px; }
   }
-  .hero-carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    height: clamp(320px, 58vw, 760px);
-    overflow: hidden;
-  }
-  .hero-carousel-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-carousel-track { transition-duration: 1ms; }
-  }
-
-  /* Servicios */
-  .services-feature {
-    width: 100%;
-    padding: 0;
-    background: #1A2443;
-    color: #ffffff;
-  }
-  .services-feature-inner {
-    width: min(1240px, 88%);
-    margin: 0 auto;
-    padding: 100px 0;
-  }
-  .services-feature-grid {
-    display: grid;
-    grid-template-columns: minmax(320px, .85fr) 1.15fr;
-    gap: 70px;
-    align-items: stretch;
-  }
-  .services-feature-image {
-    min-height: 540px;
-    overflow: hidden;
-    background: #111a32;
-  }
-  .services-feature-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
-  .services-feature-content { display: flex; flex-direction: column; justify-content: center; }
-  .services-feature .section-heading { border-bottom-color: rgba(255,255,255,.28); margin-bottom: 10px; }
-  .services-feature .section-heading h2 { color: #ffffff; }
-  .services-feature-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 45px; }
-  .services-feature-item {
-    display: grid; grid-template-columns: 35px 1fr 20px; align-items: center; gap: 12px;
-    min-height: 105px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.28);
-    color: #ffffff; transition: opacity .2s ease, transform .2s ease;
-  }
-  .services-feature-item:hover { opacity: .82; transform: translateX(4px); }
-  .services-feature-item span:first-child { color: #C44917; font-size: 12px; font-weight: 600; }
-  .services-feature-item h3 { margin: 0; color: #ffffff; font-family: 'Manrope', sans-serif; font-size: 18px; line-height: 1.35; font-weight: 600; }
-  .services-feature-item .service-arrow { color: #ffffff; font-size: 17px; text-align: right; }
-  .services-feature .link { color: #ffffff; border-bottom-color: #C44917; margin-top: 28px; }
-
-  /* Nuevo hero: texto a la izquierda y carrusel a la derecha */
-  .hero.hero-split {
-    display: grid;
-    grid-template-columns: minmax(0, .82fr) minmax(380px, 1.18fr);
-    gap: clamp(45px, 6vw, 90px);
-    align-items: center;
-    padding: 82px 0 72px;
-  }
-  .hero-copy { min-width: 0; }
-  .hero-split h1 { margin: 25px 0; }
-  .hero-split .hero-bottom { display: block; margin-top: 28px; }
-  .hero-split .hero-bottom .intro { max-width: 430px; margin: 0 0 28px; }
-  .hero-side-carousel { min-width: 0; }
-  .hero-side-carousel .hero-carousel-slide { height: clamp(360px, 42vw, 570px); }
-  .hero-side-carousel .hero-carousel { width: 100%; }
-
-  /* Navegación de inicio: ligeramente mayor y centrada con Instagram */
-  header nav { align-items: center; gap: 30px; font-size: 14px; }
-  header nav > a:not(.instagram-button) { display: inline-flex; align-items: center; height: 36px; }
-  header .instagram-button { align-self: center; }
-
-  @media (max-width: 900px) {
-    .hero.hero-split { grid-template-columns: 1fr; gap: 45px; padding: 70px 0 55px; }
-    .hero-side-carousel .hero-carousel-slide { height: clamp(330px, 60vw, 520px); }
-  }
-  @media (max-width: 760px) {
-    header nav { gap: 14px; font-size: 11px; }
-    header nav > a:not(.instagram-button) { height: auto; }
-  }
-  @media (max-width: 650px) {
-    .hero.hero-split { padding-top: 70px; }
-  }
-
-  /* Sección de servicios */
-  @media (max-width: 760px) {
-    .services-feature-inner { width: 90%; padding: 75px 0; }
-    .services-feature-grid { grid-template-columns: 1fr; gap: 40px; }
-    .services-feature-image { min-height: 320px; height: 58vw; }
-    .services-feature-list { grid-template-columns: 1fr; }
-    .services-feature-item { min-height: 82px; }
-  }
+  @media (max-width:650px) { .hero.hero-split { padding-top:70px; } }
   </style>
 </head>
 <body>
@@ -134,21 +73,15 @@
     <a href="proyectos.html">Proyectos</a>
     <a href="nosotros.html">Nosotros</a>
     <a href="contacto.html">Contacto ↗</a>
-    <a class="instagram-button" href="https://www.instagram.com/alvarezarq.pe?srtk=Z3ZjanA4MGZucmVi&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de ALVAREZ Arquitectura" title="Instagram">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4.1"></circle><circle class="instagram-dot" cx="17.7" cy="6.6" r="1.05"></circle></svg>
-  </a>
+    <a class="instagram-button" href="https://www.instagram.com/alvarezarq.pe?srtk=Z3ZjanA4MGZucmVi&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de ALVAREZ Arquitectura" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4.1"></circle><circle class="instagram-dot" cx="17.7" cy="6.6" r="1.05"></circle></svg></a>
   </nav>
 </header>
 <main>
-
 <section class="hero hero-split wrap">
   <div class="hero-copy">
     <p class="eyebrow">ALVAREZ ARQUITECTURA · CHANCAY, LIMA, PERÚ</p>
     <h1>Diseño con<br><em>identidad.</em></h1>
-    <div class="hero-bottom">
-      <p class="intro">Desarrollamos proyectos de arquitectura, construcción y remodelación que equilibran funcionalidad, estética y calidad. Diseñamos cada espacio a partir de las necesidades de nuestros clientes.</p>
-      <a class="link" href="proyectos.html">Explorar proyectos ↗</a>
-    </div>
+    <div class="hero-bottom"><p class="intro">Desarrollamos proyectos de arquitectura, construcción y remodelación que equilibran funcionalidad, estética y calidad. Diseñamos cada espacio a partir de las necesidades de nuestros clientes.</p><a class="link" href="proyectos.html">Explorar proyectos ↗</a></div>
   </div>
   <div class="hero-side-carousel">
     <section class="hero-carousel" aria-label="Galería de proyectos arquitectónicos" aria-roledescription="carrusel">
@@ -160,85 +93,26 @@
     </section>
   </div>
 </section>
-
-<section class="services-feature">
-  <div class="services-feature-inner">
-    <div class="services-feature-grid">
-      <div class="services-feature-image"><img src="assets/magnific__enhance__86579.png" alt="Referencia de arquitectura residencial contemporánea" loading="lazy"></div>
-      <div class="services-feature-content">
-        <div class="section-heading"><h2>Qué ofrecemos</h2></div>
-        <div class="services-feature-list">
-          <a class="services-feature-item" href="servicios.html"><span>01.</span><h3>Diseño arquitectónico</h3><span class="service-arrow">↗</span></a>
-          <a class="services-feature-item" href="servicios.html"><span>02.</span><h3>Diseño de interiores</h3><span class="service-arrow">↗</span></a>
-          <a class="services-feature-item" href="servicios.html"><span>03.</span><h3>Construcción y supervisión de obra</h3><span class="service-arrow">↗</span></a>
-          <a class="services-feature-item" href="servicios.html"><span>04.</span><h3>Diseño y fabricación de muebles personalizados</h3><span class="service-arrow">↗</span></a>
-        </div>
-        <p style="margin:0"><a class="link" href="servicios.html">Conoce todos nuestros servicios ↗</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section wrap"><div class="section-heading"><h2>Proyectos seleccionados</h2><p>Diseño pensado para cada forma de habitar.</p></div><div class="projects">
-<article class="project"><div class="project-image"><img src="assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png" alt="Referencia de arquitectura residencial" loading="lazy"></div><div class="project-meta"><div><h3>Arquitectura residencial</h3><p>Diseño arquitectónico · Vivienda</p></div><span class="number">01</span></div></article>
-<article class="project"><div class="project-image"><img src="assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png" alt="Referencia de diseño interior" loading="lazy"></div><div class="project-meta"><div><h3>Diseño de espacios</h3><p>Interiores · Diseño integral</p></div><span class="number">02</span></div></article></div><p style="margin-top:28px"><a class="link" href="proyectos.html">Ver portafolio completo ↗</a></p></section>
+<section class="services-feature"><div class="services-feature-inner"><div class="services-feature-grid"><div class="services-feature-image"><img src="assets/magnific__enhance__86579.png" alt="Referencia de arquitectura residencial contemporánea" loading="lazy"></div><div class="services-feature-content"><div class="section-heading"><h2>Qué ofrecemos</h2></div><div class="services-feature-list"><a class="services-feature-item" href="servicios.html"><span>01.</span><h3>Diseño arquitectónico</h3><span class="service-arrow">↗</span></a><a class="services-feature-item" href="servicios.html"><span>02.</span><h3>Diseño de interiores</h3><span class="service-arrow">↗</span></a><a class="services-feature-item" href="servicios.html"><span>03.</span><h3>Construcción y supervisión de obra</h3><span class="service-arrow">↗</span></a><a class="services-feature-item" href="servicios.html"><span>04.</span><h3>Diseño y fabricación de muebles personalizados</h3><span class="service-arrow">↗</span></a></div><p style="margin:0"><a class="link" href="servicios.html">Conoce todos nuestros servicios ↗</a></p></div></div></div></section>
+<section class="section wrap"><div class="section-heading"><h2>Proyectos seleccionados</h2><p>Diseño pensado para cada forma de habitar.</p></div><div class="projects"><article class="project"><div class="project-image"><img src="assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png" alt="Referencia de arquitectura residencial" loading="lazy"></div><div class="project-meta"><div><h3>Arquitectura residencial</h3><p>Diseño arquitectónico · Vivienda</p></div><span class="number">01</span></div></article><article class="project"><div class="project-image"><img src="assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png" alt="Referencia de diseño interior" loading="lazy"></div><div class="project-meta"><div><h3>Diseño de espacios</h3><p>Interiores · Diseño integral</p></div><span class="number">02</span></div></article></div><p style="margin-top:28px"><a class="link" href="proyectos.html">Ver portafolio completo ↗</a></p></section>
 <section class="page-cta"><div class="wrap"><p class="eyebrow">¿TIENES UN PROYECTO EN MENTE?</p><h2>Todo comienza con una buena conversación.</h2><a class="link" href="contacto.html">Hablemos de tu proyecto ↗</a></div></section>
 </main>
-<footer class="wrap">
-  <span>© <span data-year></span> ALVAREZ Arquitectura · Chancay, Lima, Perú</span>
-  <span><a href="servicios.html">Servicios</a> · <a href="proyectos.html">Proyectos</a> · <a href="nosotros.html">Nosotros</a> · <a href="contacto.html">Contacto</a> · <a href="https://www.instagram.com/alvarezarq.pe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALVAREZ Arquitectura">Instagram ↗</a></span>
-</footer>
-
+<footer class="wrap"><span>© <span data-year></span> ALVAREZ Arquitectura · Chancay, Lima, Perú</span><span><a href="servicios.html">Servicios</a> · <a href="proyectos.html">Proyectos</a> · <a href="nosotros.html">Nosotros</a> · <a href="contacto.html">Contacto</a> · <a href="https://www.instagram.com/alvarezarq.pe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALVAREZ Arquitectura">Instagram ↗</a></span></footer>
 <script>
 (() => {
-  const carousel = document.querySelector('.hero-carousel');
-  if (!carousel) return;
-  const track = carousel.querySelector('.hero-carousel-track');
-  const originalSlides = Array.from(track.children);
-  if (originalSlides.length !== 3) return;
-
-  const firstClone = originalSlides[0].cloneNode(true);
-  const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
-  firstClone.setAttribute('aria-hidden', 'true');
-  lastClone.setAttribute('aria-hidden', 'true');
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, originalSlides[0]);
-
-  let index = 1;
-  let timer = null;
-  let paused = false;
-  let touching = false;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let startX = 0;
-  let deltaX = 0;
-
-  const setPosition = (animate = true) => {
-    const duration = reduceMotion.matches ? '1ms' : '750ms';
-    track.style.transition = animate ? `transform ${duration} cubic-bezier(.22,.61,.36,1)` : 'none';
-    track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
-  };
-  const next = () => { if (paused || touching) return; index += 1; setPosition(true); };
-  const start = () => { stop(); if (!paused && !touching && !document.hidden) timer = window.setInterval(next, 3000); };
-  const stop = () => { if (timer !== null) window.clearInterval(timer); timer = null; };
-
-  track.addEventListener('transitionend', (event) => {
-    if (event.target !== track || event.propertyName !== 'transform') return;
-    if (index === originalSlides.length + 1) { index = 1; setPosition(false); }
-    else if (index === 0) { index = originalSlides.length; setPosition(false); }
-  });
-  carousel.addEventListener('mouseenter', () => { paused = true; stop(); });
-  carousel.addEventListener('mouseleave', () => { paused = false; start(); });
-  carousel.addEventListener('focusin', () => { paused = true; stop(); });
-  carousel.addEventListener('focusout', () => { paused = false; start(); });
-  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-  carousel.addEventListener('touchstart', (event) => { if (!event.touches.length) return; touching = true; stop(); startX = event.touches[0].clientX; deltaX = 0; }, { passive: true });
-  carousel.addEventListener('touchmove', (event) => { if (!touching || !event.touches.length) return; deltaX = event.touches[0].clientX - startX; }, { passive: true });
-  carousel.addEventListener('touchend', () => { if (!touching) return; if (Math.abs(deltaX) > 45) { index += deltaX < 0 ? 1 : -1; setPosition(true); } touching = false; start(); }, { passive: true });
-  carousel.addEventListener('touchcancel', () => { touching = false; start(); }, { passive: true });
-  setPosition(false);
-  start();
+  const carousel=document.querySelector('.hero-carousel'); if(!carousel)return; const track=carousel.querySelector('.hero-carousel-track'); const originalSlides=Array.from(track.children); if(originalSlides.length!==3)return;
+  const firstClone=originalSlides[0].cloneNode(true), lastClone=originalSlides[originalSlides.length-1].cloneNode(true); firstClone.setAttribute('aria-hidden','true'); lastClone.setAttribute('aria-hidden','true'); track.appendChild(firstClone); track.insertBefore(lastClone,originalSlides[0]);
+  let index=1,timer=null,paused=false,touching=false,startX=0,deltaX=0; const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const setPosition=(animate=true)=>{const duration=reduceMotion.matches?'1ms':'750ms';track.style.transition=animate?`transform ${duration} cubic-bezier(.22,.61,.36,1)`:'none';track.style.transform=`translate3d(-${index*100}%,0,0)`;};
+  const next=()=>{if(paused||touching)return;index+=1;setPosition(true)}; const start=()=>{stop();if(!paused&&!touching&&!document.hidden)timer=window.setInterval(next,3000)}; const stop=()=>{if(timer!==null)window.clearInterval(timer);timer=null};
+  track.addEventListener('transitionend',event=>{if(event.target!==track||event.propertyName!=='transform')return;if(index===originalSlides.length+1){index=1;setPosition(false)}else if(index===0){index=originalSlides.length;setPosition(false)}});
+  carousel.addEventListener('mouseenter',()=>{paused=true;stop()}); carousel.addEventListener('mouseleave',()=>{paused=false;start()}); carousel.addEventListener('focusin',()=>{paused=true;stop()}); carousel.addEventListener('focusout',()=>{paused=false;start()}); document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  carousel.addEventListener('touchstart',event=>{if(!event.touches.length)return;touching=true;stop();startX=event.touches[0].clientX;deltaX=0},{passive:true});
+  carousel.addEventListener('touchmove',event=>{if(!touching||!event.touches.length)return;deltaX=event.touches[0].clientX-startX},{passive:true});
+  carousel.addEventListener('touchend',()=>{if(!touching)return;touching=false;if(Math.abs(deltaX)>45){if(deltaX<0)index+=1;else index-=1;setPosition(true)}start()},{passive:true});
+  setPosition(false); start();
 })();
 </script>
-<script src="script.js"></script>
+<script src="script.js?v=logo2"></script>
 </body>
 </html>
