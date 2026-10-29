@@ -255,30 +255,39 @@
     }
 
     .process-step {
-      padding-top: 20px;
-      border-top: 2px solid var(--terracotta);
+      padding: 26px 22px 28px;
+      background: #FFFEFA;
+      border-top: 3px solid #C85A32;
+      box-shadow: 0 4px 18px rgba(26, 36, 67, .04);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(26, 36, 67, .10);
     }
 
     .process-step .step-number {
-      color: var(--terracotta);
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 22px;
+      color: #C85A32;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      margin-bottom: 20px;
     }
 
     .process-step h3 {
       color: var(--navy);
       font-family: 'Manrope', sans-serif;
       font-size: 17px;
-      line-height: 1.45;
+      line-height: 1.4;
       font-weight: 600;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
     }
 
     .process-step p {
       color: var(--muted);
       font-size: 12px;
-      line-height: 1.9;
+      line-height: 1.7;
       margin: 0;
     }
 
