@@ -28,36 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "Uso mixto comercio-vivienda",
       area: "Por definir",
       description: "Proyecto de uso mixto que integra comercio en el primer nivel con vivienda en los niveles superiores. La propuesta busca organizar los accesos, la circulación y la relación entre los distintos usos dentro de una composición arquitectónica contemporánea.",
-      images: [
-        "assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png",
-        "assets/magnific__enhance__86579.png",
-        "assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png",
-        "assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png"
-      ]
+      images: ["assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png","assets/magnific__enhance__86579.png","assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png","assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png"]
     },
     {
       name: "Casa C",
       category: "Vivienda",
       area: "Por definir",
       description: "Propuesta residencial concebida para responder a las necesidades cotidianas del usuario mediante una distribución funcional, una adecuada entrada de luz y una materialidad contemporánea que refuerza la identidad del proyecto.",
-      images: [
-        "assets/magnific__enhance__86579.png",
-        "assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png",
-        "assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png",
-        "assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png"
-      ]
+      images: ["assets/magnific__enhance__86579.png","assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png","assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png","assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png"]
     },
     {
       name: "Ramsey",
       category: "Remodelación de vivienda",
       area: "Por definir",
       description: "Intervención de vivienda orientada a actualizar los espacios existentes, mejorar su funcionalidad y construir una nueva expresión arquitectónica mediante una selección coherente de materiales, iluminación y detalles.",
-      images: [
-        "assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png",
-        "assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png",
-        "assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png",
-        "assets/magnific__enhance__86579.png"
-      ]
+      images: ["assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png","assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png","assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png","assets/magnific__enhance__86579.png"]
     }
   ];
 
@@ -76,22 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
   function showProject(index) {
     currentProject = (index + projects.length) % projects.length;
     const project = projects[currentProject];
-
     modalTitle.textContent = project.name;
     modalCategory.textContent = project.category;
     modalArea.textContent = project.area;
     modalDescription.textContent = project.description;
     modalPlan.src = project.images[0];
     modalPlan.alt = `Plano arquitectónico de ${project.name}`;
-
     renderImages.forEach((image, i) => {
       image.src = project.images[i + 1];
       image.alt = `Render ${i + 1} de ${project.name}`;
     });
-
     counter.textContent = `${String(currentProject + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
-    prevButton.disabled = projects.length < 2;
-    nextButton.disabled = projects.length < 2;
   }
 
   function openModal(index) {
@@ -99,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-    closeButton.focus();
+    requestAnimationFrame(() => closeButton.focus());
   }
 
   function closeModal() {
@@ -108,9 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("modal-open");
   }
 
-  projectTiles.forEach(tile => {
-    tile.addEventListener("click", () => openModal(Number(tile.dataset.project)));
-  });
+  // Delegación de eventos para que la apertura funcione de forma consistente en desktop y móvil.
+  const frame = document.querySelector(".projects-frame");
+  if (frame) {
+    frame.addEventListener("click", event => {
+      const tile = event.target.closest(".project-tile");
+      if (!tile || !frame.contains(tile)) return;
+      event.preventDefault();
+      openModal(Number(tile.dataset.project));
+    }, true);
+  }
 
   closeButton.addEventListener("click", closeModal);
   prevButton.addEventListener("click", () => showProject(currentProject - 1));
