@@ -393,6 +393,9 @@
       }
 
       .services { grid-template-columns: 1fr; }
+      .service-page-grid { grid-template-columns: 1fr; column-gap: 0; }
+      .service-page-grid .service { padding-left: 82px; }
+      .service-page-grid .service-number { font-size: 3.2rem; top: 28px; }
       .service p { margin-left: 0; }
       .process-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 
