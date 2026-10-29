@@ -478,6 +478,9 @@ nav a:hover, nav a[aria-current="page"] { color: var(--terracotta); }
 .service-page-grid .service p {
   color: #ffffff;
 }
+.service-page-grid .service p {
+  text-align: justify;
+}
 .service-page-grid .service-icon {
   position: absolute;
   left: 0;
