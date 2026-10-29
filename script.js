@@ -73,10 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
         image.src = imagePath;
         image.alt = `Vista ${i + 1} de ${project.name}`;
         image.hidden = false;
+        image.style.display = "";
       } else {
         image.removeAttribute("src");
         image.alt = "";
         image.hidden = true;
+        image.style.display = "none";
       }
     });
     counter.textContent = `${String(currentProject + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
