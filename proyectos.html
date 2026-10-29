@@ -10,6 +10,133 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=logo2">
+  <style>
+    .projects-showcase { padding: 20px 0 110px; }
+    .projects-frame {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:0;
+      min-height:560px;
+      overflow:hidden;
+      background:#1A2443;
+    }
+    .project-tile {
+      position:relative;
+      min-height:560px;
+      overflow:hidden;
+      border:0;
+      padding:0;
+      cursor:pointer;
+      text-align:left;
+      color:#fff;
+      background:#1A2443;
+    }
+    .project-tile + .project-tile { border-left:1px solid rgba(255,255,255,.18); }
+    .project-tile img {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .8s cubic-bezier(.2,.65,.2,1), filter .5s ease;
+    }
+    .project-tile::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(10,15,30,0) 35%, rgba(10,15,30,.16) 54%, rgba(10,15,30,.88) 100%);
+      transition:background .45s ease;
+    }
+    .project-tile:hover img,
+    .project-tile:focus-visible img { transform:scale(1.05); }
+    .project-tile:hover::after,
+    .project-tile:focus-visible::after { background:linear-gradient(180deg, rgba(10,15,30,.03) 30%, rgba(10,15,30,.22) 52%, rgba(10,15,30,.94) 100%); }
+    .project-tile:focus-visible { outline:3px solid #fff; outline-offset:-3px; }
+    .project-tile-content {
+      position:absolute;
+      z-index:2;
+      left:30px;
+      right:25px;
+      bottom:28px;
+      transform:translateY(5px);
+      transition:transform .4s ease, opacity .4s ease;
+    }
+    .project-tile:hover .project-tile-content,
+    .project-tile:focus-visible .project-tile-content { transform:translateY(0); }
+    .project-index { font-size:10px; letter-spacing:2px; opacity:.72; margin-bottom:10px; }
+    .project-tile h3 { margin:0 0 6px; color:#fff; font-family:'Manrope',sans-serif; font-size:25px; line-height:1.1; font-weight:700; }
+    .project-tile p { margin:0; color:rgba(255,255,255,.72); font-size:12px; }
+    .project-open { display:block; margin-top:17px; color:#fff; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0; transition:opacity .35s ease; }
+    .project-tile:hover .project-open,
+    .project-tile:focus-visible .project-open { opacity:1; }
+
+    .project-modal {
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      background:rgba(10,15,30,.78);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .project-modal.is-open { display:flex; }
+    .project-modal-panel {
+      position:relative;
+      width:min(1180px, 100%);
+      max-height:calc(100vh - 56px);
+      overflow:auto;
+      background:#F3F0E7;
+      color:#1A2443;
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+    .modal-top {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:30px;
+      padding:34px 38px 28px;
+      border-bottom:1px solid #e4e5e9;
+    }
+    .modal-category { margin:0 0 10px; color:#C44917; font-size:10px; letter-spacing:2px; text-transform:uppercase; }
+    .modal-title { margin:0; font-family:'Manrope',sans-serif; font-size:clamp(32px,5vw,58px); line-height:1; letter-spacing:-2px; font-weight:600; }
+    .modal-close { flex:0 0 auto; width:42px; height:42px; border:1px solid #1A2443; border-radius:50%; background:transparent; color:#1A2443; font-size:22px; line-height:1; cursor:pointer; transition:.2s ease; }
+    .modal-close:hover { background:#1A2443; color:#fff; }
+    .modal-body { padding:32px 38px 38px; }
+    .modal-info { display:grid; grid-template-columns:.65fr 1.35fr; gap:45px; padding-bottom:35px; }
+    .modal-area-label { margin:0 0 7px; color:#626879; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; }
+    .modal-area { margin:0; font-family:'Manrope',sans-serif; font-size:27px; font-weight:600; }
+    .modal-description { margin:0; color:#626879; font-size:14px; line-height:1.9; max-width:700px; }
+    .modal-section-title { margin:0 0 16px; font-family:'Manrope',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; }
+    .modal-plan { margin-bottom:35px; }
+    .modal-plan-image { min-height:230px; max-height:420px; overflow:hidden; background:#e8e6df; }
+    .modal-plan-image img { display:block; width:100%; height:100%; min-height:230px; object-fit:contain; background:#e8e6df; }
+    .modal-renders { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .modal-renders img { display:block; width:100%; height:250px; object-fit:cover; background:#e8e6df; }
+    .modal-navigation { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:25px 38px; border-top:1px solid #e4e5e9; }
+    .modal-nav-btn { border:0; background:transparent; color:#1A2443; font:inherit; font-size:11px; letter-spacing:1px; text-transform:uppercase; cursor:pointer; padding:8px 0; border-bottom:1px solid #C44917; }
+    .modal-nav-btn:disabled { opacity:.3; cursor:default; }
+    .modal-counter { color:#626879; font-size:11px; }
+    body.modal-open { overflow:hidden; }
+
+    @media (max-width:760px) {
+      .projects-showcase { padding-bottom:75px; }
+      .projects-frame { grid-template-columns:1fr; min-height:0; }
+      .project-tile { min-height:430px; }
+      .project-tile + .project-tile { border-left:0; border-top:1px solid rgba(255,255,255,.18); }
+      .project-open { opacity:1; }
+      .project-modal { padding:12px; }
+      .project-modal-panel { max-height:calc(100vh - 24px); }
+      .modal-top { padding:25px 22px 22px; }
+      .modal-body { padding:25px 22px 30px; }
+      .modal-info { grid-template-columns:1fr; gap:22px; }
+      .modal-renders { grid-template-columns:1fr; }
+      .modal-renders img { height:260px; }
+      .modal-navigation { padding:20px 22px; }
+    }
+  </style>
 </head>
 <body>
 <header class="wrap">
@@ -22,28 +149,88 @@
     <a href="nosotros.html">Nosotros</a>
     <a href="contacto.html">Contacto ↗</a>
     <a class="instagram-button" href="https://www.instagram.com/alvarezarq.pe?srtk=Z3ZjanA4MGZucmVi&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de ALVAREZ Arquitectura" title="Instagram">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4.1"></circle><circle class="instagram-dot" cx="17.7" cy="6.6" r="1.05"></circle></svg>
-  </a>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4.1"></circle><circle class="instagram-dot" cx="17.7" cy="6.6" r="1.05"></circle></svg>
+    </a>
   </nav>
 </header>
-<main>
 
-<section class="page-hero wrap">
-  <p class="eyebrow">ALVAREZ ARQUITECTURA · PORTAFOLIO</p>
-  <h1>Proyectos con<br><em>identidad.</em></h1>
-  <p class="intro">Una selección de referencias de arquitectura y diseño. Esta galería podrá actualizarse con tus proyectos y fotografías reales.</p>
-</section>
-<div class="page-banner"><img src="assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png" alt="Interior contemporáneo con materiales naturales"></div>
-<section class="section wrap">
-  <div class="section-heading"><h2>Proyectos seleccionados</h2><p>Diseño pensado para cada forma de habitar.</p></div>
-  <div class="projects">
-    <article class="project"><div class="project-image"><img src="assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png" alt="Referencia visual de arquitectura residencial" loading="lazy"></div><div class="project-meta"><div><h3>Arquitectura residencial</h3><p>Diseño arquitectónico · Vivienda</p></div><span class="number">01</span></div></article>
-    <article class="project"><div class="project-image"><img src="assets/magnific__agregar-respaldar-del-mismo-material-que-los-del-s__86577.png" alt="Referencia visual de diseño de interiores" loading="lazy"></div><div class="project-meta"><div><h3>Diseño de espacios</h3><p>Interiores · Diseño integral</p></div><span class="number">02</span></div></article>
-  </div>
-  <p class="section-intro" style="margin-top:38px">Las imágenes actuales son referencias visuales. Sustitúyelas por fotografías y renders de proyectos propios antes de presentar el portafolio como obra ejecutada.</p>
-</section>
-<section class="page-cta"><div class="wrap"><p class="eyebrow">¿TRABAJAMOS JUNTOS?</p><h2>Tu proyecto puede ser el próximo.</h2><a class="link" href="contacto.html">Conversemos ↗</a></div></section>
+<main>
+  <section class="page-hero wrap">
+    <p class="eyebrow">ALVAREZ ARQUITECTURA · PORTAFOLIO</p>
+    <h1>Proyectos con<br><em>identidad.</em></h1>
+    <p class="intro">Una selección de proyectos donde arquitectura, materialidad y necesidades del usuario se integran en una propuesta coherente.</p>
+  </section>
+
+  <section class="projects-showcase wrap" aria-label="Proyectos arquitectónicos">
+    <div class="projects-frame">
+      <button class="project-tile" type="button" data-project="0" aria-label="Ver detalle de Edificio Prado">
+        <img src="assets/magnific__renderiza-esta-imagen-como-una-fotografa-profesion__86580.png" alt="Edificio Prado" loading="lazy">
+        <div class="project-tile-content">
+          <div class="project-index">01 · PROYECTO</div>
+          <h3>Edificio Prado</h3>
+          <p>Uso mixto comercio-vivienda</p>
+          <span class="project-open">Ver proyecto ↗</span>
+        </div>
+      </button>
+      <button class="project-tile" type="button" data-project="1" aria-label="Ver detalle de Casa C">
+        <img src="assets/magnific__enhance__86579.png" alt="Casa C" loading="lazy">
+        <div class="project-tile-content">
+          <div class="project-index">02 · PROYECTO</div>
+          <h3>Casa C</h3>
+          <p>Vivienda</p>
+          <span class="project-open">Ver proyecto ↗</span>
+        </div>
+      </button>
+      <button class="project-tile" type="button" data-project="2" aria-label="Ver detalle de Ramsey">
+        <img src="assets/magnific__esos-dos-paneles-de-espejos-son-revestimientos-ver__86578.png" alt="Ramsey" loading="lazy">
+        <div class="project-tile-content">
+          <div class="project-index">03 · PROYECTO</div>
+          <h3>Ramsey</h3>
+          <p>Remodelación de vivienda</p>
+          <span class="project-open">Ver proyecto ↗</span>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <section class="page-cta"><div class="wrap"><p class="eyebrow">¿TRABAJAMOS JUNTOS?</p><h2>Tu proyecto puede ser el próximo.</h2><a class="link" href="contacto.html">Conversemos ↗</a></div></section>
 </main>
+
+<div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="project-modal-panel">
+    <div class="modal-top">
+      <div>
+        <p class="modal-category" id="modal-category"></p>
+        <h2 class="modal-title" id="modal-title"></h2>
+      </div>
+      <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar proyecto">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-info">
+        <div><p class="modal-area-label">Área construida</p><p class="modal-area" id="modal-area"></p></div>
+        <p class="modal-description" id="modal-description"></p>
+      </div>
+      <div class="modal-plan">
+        <h3 class="modal-section-title">Plano arquitectónico</h3>
+        <div class="modal-plan-image"><img id="modal-plan-image" src="" alt="Plano arquitectónico del proyecto"></div>
+      </div>
+      <div>
+        <h3 class="modal-section-title">Renders</h3>
+        <div class="modal-renders">
+          <img id="render-1" src="" alt="Render 1 del proyecto">
+          <img id="render-2" src="" alt="Render 2 del proyecto">
+          <img id="render-3" src="" alt="Render 3 del proyecto">
+        </div>
+      </div>
+    </div>
+    <div class="modal-navigation">
+      <button class="modal-nav-btn" id="modal-prev" type="button">← Anterior</button>
+      <span class="modal-counter" id="modal-counter"></span>
+      <button class="modal-nav-btn" id="modal-next" type="button">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
 <footer class="wrap">
   <span>© <span data-year></span> ALVAREZ Arquitectura · Chancay, Lima, Perú</span>
   <span><a href="servicios.html">Servicios</a> · <a href="proyectos.html">Proyectos</a> · <a href="nosotros.html">Nosotros</a> · <a href="contacto.html">Contacto</a> · <a href="https://www.instagram.com/alvarezarq.pe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALVAREZ Arquitectura">Instagram ↗</a></span>
