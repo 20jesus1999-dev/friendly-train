@@ -277,7 +277,7 @@
 
   const start = () => {
     stop();
-    if (!paused && !touching && !document.hidden) timer = window.setInterval(next, 5000);
+    if (!paused && !touching && !document.hidden) timer = window.setInterval(next, 3000);
   };
   const stop = () => {
     if (timer !== null) window.clearInterval(timer);
