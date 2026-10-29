@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "Uso mixto comercio-vivienda",
       area: "Por definir",
       description: "Proyecto de uso mixto que integra comercio en el primer nivel con vivienda en los niveles superiores. La propuesta busca organizar los accesos, la circulación y la relación entre los distintos usos dentro de una composición arquitectónica contemporánea.",
-      images: ["assets/PRADO_FACHADAV.png","assets/PRADO_INT1.png","assets/PRADO_INT2.png","assets/PRADO_INT3.png"]
+      images: ["assets/PRADO_IMAGENPRINCIPAL.png","assets/PRADO_INT1.png","assets/PRADO_INT2.png","assets/PRADO_INT3.png"]
     },
     {
       name: "Casa C",
       category: "Vivienda",
       area: "Por definir",
       description: "Propuesta residencial concebida para responder a las necesidades cotidianas del usuario mediante una distribución funcional, una adecuada entrada de luz y una materialidad contemporánea que refuerza la identidad del proyecto.",
-      images: ["assets/CASAC_FACHADAV.png","assets/CASAC_ENTRADA.png","assets/CASAC_SALA.png","assets/CASAC_FACH.png"]
+      images: ["assets/CASAC_IMAGENPRINCIPAL.png","assets/CASAC_ENTRADA.png","assets/CASAC_SALA.png","assets/CASAC_FACH.png"]
     },
     {
       name: "Ramsey",
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalArea.textContent = project.area;
     modalDescription.textContent = project.description;
     modalPlan.src = project.images[0];
-    modalPlan.alt = `Plano arquitectónico de ${project.name}`;
+    modalPlan.alt = `Imagen principal de ${project.name}`;
     renderImages.forEach((image, i) => {
       const imagePath = project.images[i + 1];
       if (imagePath) {
