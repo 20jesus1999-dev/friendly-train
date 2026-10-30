@@ -18,6 +18,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
   }
 
+  // Carrusel del proceso: sincroniza los indicadores con la tarjeta visible.
+  const processTrack = document.querySelector(".process-section .process-grid");
+  if (processTrack) {
+    const processSteps = Array.from(processTrack.querySelectorAll(".process-step"));
+    const processDots = Array.from(document.querySelectorAll(".process-section .process-dot"));
+    const setActiveProcessDot = index => {
+      processDots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === index);
+        if (i === index) dot.setAttribute("aria-current", "step");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+    processDots.forEach((dot, index) => dot.addEventListener("click", () => {
+      processSteps[index]?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest", inline: "center" });
+      setActiveProcessDot(index);
+    }));
+    if ("IntersectionObserver" in window && processSteps.length) {
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio-a.intersectionRatio)[0];
+        if (visible) setActiveProcessDot(processSteps.indexOf(visible.target));
+      }, { root: processTrack, threshold: [0.45, 0.6, 0.8] });
+      processSteps.forEach(step => observer.observe(step));
+    } else {
+      processTrack.addEventListener("scroll", () => {
+        const index = Math.round(processTrack.scrollLeft / (processSteps[0].getBoundingClientRect().width + 14));
+        setActiveProcessDot(Math.max(0, Math.min(processDots.length - 1, index)));
+      }, { passive: true });
+    }
+  }
+
   const projectTiles = document.querySelectorAll(".project-tile");
   const modal = document.querySelector("#project-modal");
   if (!projectTiles.length || !modal) return;
