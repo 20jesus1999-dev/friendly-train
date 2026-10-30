@@ -737,3 +737,104 @@ header .brand span { display: none; }
   .process-section .process-dot { transition: none; }
   .process-section .process-grid { scroll-behavior: auto; }
 }
+
+
+/* Servicios: tarjetas editoriales con fotografía y numeración */
+.service-band {
+  width: 100%;
+  margin: 0;
+  padding: 88px 0 100px;
+  background: var(--bg);
+  color: var(--navy);
+}
+.service-band > .wrap { width: min(1240px, 88%); padding: 0; }
+.services-heading {
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-bottom: 34px;
+}
+.services-heading h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 500;
+  letter-spacing: -1.8px;
+}
+.service-page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+.service-page-grid .service-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.service-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--soft);
+}
+.service-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .65s cubic-bezier(.2,.65,.2,1);
+}
+.service-card:hover .service-card-image img { transform: scale(1.045); }
+.service-card-number {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 39px;
+  height: 34px;
+  padding: 0 9px;
+  border-radius: 5px;
+  background: rgba(12,14,18,.76);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.service-page-grid .service-card-content { padding: 19px 2px 0; }
+.service-page-grid .service-card .service-title {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.service-page-grid .service-card p {
+  margin: 0;
+  max-width: none;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: left;
+}
+@media (max-width: 980px) {
+  .service-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 22px; }
+}
+@media (max-width: 600px) {
+  .service-band { padding: 65px 0 75px; }
+  .service-band > .wrap { width: 90%; }
+  .services-heading { margin-bottom: 25px; }
+  .service-page-grid { grid-template-columns: 1fr; gap: 30px; }
+  .service-card-image { aspect-ratio: 1.28 / 1; }
+  .service-page-grid .service-card-content { padding-top: 15px; }
+  .service-page-grid .service-card .service-title { font-size: 18px; }
+}
