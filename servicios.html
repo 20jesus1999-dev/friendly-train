@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=service-band-height-9">
+  <link rel="stylesheet" href="styles.css?v=process-carousel-1">
 </head>
 <body>
 <header class="wrap">
@@ -46,11 +46,17 @@
 <section class="section process-section">
   <div class="wrap">
     <div class="section-heading"><h2>Nuestro proceso</h2><p>De la primera idea a la realidad.</p></div>
-    <div class="process-grid">
-      <article class="process-step"><div class="step-number">01 / ESCUCHA</div><h3>Escuchamos y definimos</h3><p>Convertimos tus ideas y necesidades en objetivos claros para el proyecto.</p></article>
-      <article class="process-step"><div class="step-number">02 / DISEÑO</div><h3>Diseñamos contigo</h3><p>Desarrollamos una propuesta que une tus expectativas, funcionalidad y estética.</p></article>
-      <article class="process-step"><div class="step-number">03 / DESARROLLO</div><h3>Cuidamos cada detalle</h3><p>Resolvemos los aspectos técnicos para lograr un diseño viable y coherente.</p></article>
-      <article class="process-step"><div class="step-number">04 / EJECUCIÓN</div><h3>Lo llevamos a la realidad</h3><p>Acompañamos el proceso para mantener la calidad y fidelidad al diseño.</p></article>
+    <div class="process-grid" aria-label="Etapas de nuestro proceso">
+      <article class="process-step"><div class="step-number"><span class="step-index">01</span><span class="step-label">ESCUCHA</span></div><h3>Escuchamos y definimos</h3><p>Convertimos tus ideas y necesidades en objetivos claros para el proyecto.</p></article>
+      <article class="process-step"><div class="step-number"><span class="step-index">02</span><span class="step-label">DISEÑO</span></div><h3>Diseñamos contigo</h3><p>Desarrollamos una propuesta que une tus expectativas, funcionalidad y estética.</p></article>
+      <article class="process-step"><div class="step-number"><span class="step-index">03</span><span class="step-label">DESARROLLO</span></div><h3>Cuidamos cada detalle</h3><p>Resolvemos los aspectos técnicos para lograr un diseño viable y coherente.</p></article>
+      <article class="process-step"><div class="step-number"><span class="step-index">04</span><span class="step-label">EJECUCIÓN</span></div><h3>Lo llevamos a la realidad</h3><p>Acompañamos el proceso para mantener la calidad y fidelidad al diseño.</p></article>
+    </div>
+    <div class="process-dots" role="group" aria-label="Navegar por las etapas del proceso">
+      <button class="process-dot is-active" type="button" aria-label="Ver paso 1" aria-current="step"></button>
+      <button class="process-dot" type="button" aria-label="Ver paso 2"></button>
+      <button class="process-dot" type="button" aria-label="Ver paso 3"></button>
+      <button class="process-dot" type="button" aria-label="Ver paso 4"></button>
     </div>
   </div>
 </section>
