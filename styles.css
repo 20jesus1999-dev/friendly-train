@@ -615,3 +615,125 @@ header .brand span { display: none; }
 @media (max-width: 760px) {
   header .brand { width: 165px; height: 53px; flex-basis: 165px; }
 }
+
+
+/* Proceso: línea de tiempo en escritorio y carrusel táctil en móvil */
+.process-section .process-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  isolation: isolate;
+}
+.process-section .process-grid::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 53px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: #d8c9c1;
+}
+.process-section .process-step {
+  min-width: 0;
+  padding: 25px 20px 27px;
+  border: 1px solid rgba(26,36,67,.08);
+  border-top: 0;
+  background: #FFFEFA;
+  box-shadow: 0 4px 18px rgba(26,36,67,.04);
+  transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.process-section .process-step:hover {
+  transform: translateY(-5px);
+  background: #fff7f2;
+  border-color: rgba(196,73,23,.35);
+  box-shadow: 0 12px 26px rgba(26,36,67,.10);
+}
+.process-section .step-number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  margin-bottom: 22px;
+  color: #C44917;
+}
+.process-section .step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #C44917;
+  border-radius: 50%;
+  background: #FFFEFA;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.5px;
+  transition: color .25s ease, background-color .25s ease, transform .25s ease;
+}
+.process-section .step-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.process-section .process-step:hover .step-index {
+  color: #fff;
+  background: #C44917;
+  transform: scale(1.06);
+}
+.process-section .process-step h3 { margin-bottom: 10px; }
+.process-section .process-dots { display: none; }
+
+@media (max-width: 760px) {
+  .process-section .process-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 5% 18px;
+    margin: 0 -5.55%;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 5%;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .process-section .process-grid::-webkit-scrollbar { display: none; }
+  .process-section .process-grid::before { display: none; }
+  .process-section .process-step {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+    padding: 24px 22px 26px;
+  }
+  .process-section .process-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin-top: 5px;
+  }
+  .process-section .process-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #c9c4c0;
+    cursor: pointer;
+    transition: width .2s ease, background-color .2s ease;
+  }
+  .process-section .process-dot.is-active {
+    width: 22px;
+    border-radius: 8px;
+    background: #C44917;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-section .process-step,
+  .process-section .step-index,
+  .process-section .process-dot { transition: none; }
+  .process-section .process-grid { scroll-behavior: auto; }
+}
