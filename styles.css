@@ -876,3 +876,9 @@ header .brand span { display: none; }
 .contact-layout > div:last-child .contact-form .button:hover {
   background: #111a32;
 }
+
+/* Mejorar legibilidad del texto del botón de contacto */
+.contact-layout > div:last-child .contact-form .button {
+  font-size: 16px;
+  font-weight: 600;
+}
