@@ -838,3 +838,30 @@ header .brand span { display: none; }
   .service-page-grid .service-card-content { padding-top: 15px; }
   .service-page-grid .service-card .service-title { font-size: 18px; }
 }
+
+
+/* Panel terracota para el formulario de contacto */
+.contact-layout > div:last-child {
+  padding: 32px;
+  background: rgba(196, 73, 23, 0.88);
+  color: #ffffff;
+}
+.contact-layout > div:last-child h2,
+.contact-layout > div:last-child .contact-copy,
+.contact-layout > div:last-child .contact-form label {
+  color: #ffffff;
+}
+.contact-layout > div:last-child .contact-form input,
+.contact-layout > div:last-child .contact-form textarea,
+.contact-layout > div:last-child .contact-form select {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #1A2443;
+}
+.contact-layout > div:last-child .contact-form input::placeholder,
+.contact-layout > div:last-child .contact-form textarea::placeholder {
+  color: #626262;
+}
+@media (max-width: 760px) {
+  .contact-layout > div:last-child { padding: 24px; }
+}
