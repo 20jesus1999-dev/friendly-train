@@ -865,3 +865,14 @@ header .brand span { display: none; }
 @media (max-width: 760px) {
   .contact-layout > div:last-child { padding: 24px; }
 }
+
+/* Botón de envío alineado con los campos del formulario */
+.contact-layout > div:last-child .contact-form .button {
+  display: flex;
+  width: 100%;
+  background: #1A2443;
+  color: #ffffff;
+}
+.contact-layout > div:last-child .contact-form .button:hover {
+  background: #111a32;
+}
